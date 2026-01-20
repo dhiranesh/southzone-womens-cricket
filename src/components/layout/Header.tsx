@@ -33,8 +33,8 @@ const Header = () => {
       <div className="flex items-center justify-between px-2 sm:px-4 py-2 sm:py-3 max-w-7xl mx-auto backdrop-blur-md">
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="hover:bg-primary/10 text-primary shrink-0">
-              <Menu className="h-6 w-6" />
+            <Button variant="ghost" size="icon" className="group hover:bg-primary/10 text-primary shrink-0 h-12 w-12 sm:h-14 sm:w-14 rounded-full transition-all duration-300 hover:scale-110">
+              <Menu className="h-8 w-8 sm:h-10 sm:w-10 transition-transform group-hover:rotate-180 duration-500" />
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="w-80 bg-background/95 backdrop-blur-xl p-0 border-r border-border/50">
@@ -67,16 +67,16 @@ const Header = () => {
           </SheetContent>
         </Sheet>
 
-        <div className="flex items-center gap-2 sm:gap-4 flex-1 justify-center mx-2">
+        <div className="flex items-center gap-3 sm:gap-6 flex-1 justify-center mx-2">
           <img 
             src={ksrLogo} 
             alt="KSRCT Logo" 
-            className="h-10 w-10 sm:h-14 sm:w-14 object-contain filter drop-shadow-sm transition-transform hover:scale-110 duration-300" 
+            className="h-14 w-14 sm:h-20 sm:w-20 object-contain filter drop-shadow-md transition-transform hover:scale-110 duration-300" 
           />
           <Link to="/" className="text-center group shrink-0">
-            <h1 className="text-base sm:text-xl font-bold font-serif text-primary tracking-tight leading-tight">
+            <h1 className="text-xl sm:text-3xl font-bold font-serif text-primary tracking-tight leading-none drop-shadow-sm">
               South Zone
-              <span className="block text-[8px] sm:text-[10px] font-sans font-normal text-muted-foreground uppercase tracking-widest group-hover:text-accent transition-colors">
+              <span className="block text-[10px] sm:text-sm font-sans font-bold text-secondary uppercase tracking-[0.2em] group-hover:text-accent transition-colors mt-0.5 sm:mt-1">
                 Cricket '26
               </span>
             </h1>
@@ -84,14 +84,14 @@ const Header = () => {
           <img 
             src={annaLogo} 
             alt="Anna University Logo" 
-            className="h-10 w-10 sm:h-14 sm:w-14 object-contain filter drop-shadow-sm transition-transform hover:scale-110 duration-300" 
+            className="h-14 w-14 sm:h-20 sm:w-20 object-contain filter drop-shadow-md transition-transform hover:scale-110 duration-300" 
           />
         </div>
 
         <Link to="/notifications" className="shrink-0">
-          <Button variant="ghost" size="icon" className="text-primary hover:bg-primary/10 relative">
-            <Bell className="h-5 w-5" />
-            <span className="absolute top-2 right-2 h-2 w-2 bg-accent rounded-full animate-pulse shadow-[0_0_8px_hsl(var(--accent))]" />
+          <Button variant="ghost" size="icon" className="group text-primary hover:bg-primary/10 relative h-12 w-12 sm:h-14 sm:w-14 rounded-full transition-all duration-300 hover:scale-110">
+            <Bell className="h-7 w-7 sm:h-9 sm:w-9 group-hover:swing" />
+            <span className="absolute top-3 right-3 h-3 w-3 bg-accent rounded-full animate-pulse shadow-[0_0_10px_hsl(var(--accent))]" />
           </Button>
         </Link>
       </div>
