@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import ksrLogo from "@/assets/ksr_logo.png";
+import annaLogo from "@/assets/anna_logo.png";
 
 const menuItems = [
   { label: "About Tournament", path: "/about" },
@@ -28,10 +30,10 @@ const Header = () => {
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
       className="sticky top-0 z-40 glass w-full"
     >
-      <div className="flex items-center justify-between px-4 py-3 max-w-7xl mx-auto">
+      <div className="flex items-center justify-between px-2 sm:px-4 py-2 sm:py-3 max-w-7xl mx-auto backdrop-blur-md">
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="hover:bg-primary/10 text-primary">
+            <Button variant="ghost" size="icon" className="hover:bg-primary/10 text-primary shrink-0">
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
@@ -65,16 +67,28 @@ const Header = () => {
           </SheetContent>
         </Sheet>
 
-        <Link to="/" className="text-center group">
-          <h1 className="text-lg font-bold font-serif text-primary tracking-tight">
-            South Zone Cricket
-            <span className="block text-[10px] font-sans font-normal text-muted-foreground uppercase tracking-widest group-hover:text-accent transition-colors">
-              Women's Tournament 2026
-            </span>
-          </h1>
-        </Link>
+        <div className="flex items-center gap-2 sm:gap-4 flex-1 justify-center mx-2">
+          <img 
+            src={ksrLogo} 
+            alt="KSRCT Logo" 
+            className="h-10 w-10 sm:h-14 sm:w-14 object-contain filter drop-shadow-sm transition-transform hover:scale-110 duration-300" 
+          />
+          <Link to="/" className="text-center group shrink-0">
+            <h1 className="text-base sm:text-xl font-bold font-serif text-primary tracking-tight leading-tight">
+              South Zone
+              <span className="block text-[8px] sm:text-[10px] font-sans font-normal text-muted-foreground uppercase tracking-widest group-hover:text-accent transition-colors">
+                Cricket '26
+              </span>
+            </h1>
+          </Link>
+          <img 
+            src={annaLogo} 
+            alt="Anna University Logo" 
+            className="h-10 w-10 sm:h-14 sm:w-14 object-contain filter drop-shadow-sm transition-transform hover:scale-110 duration-300" 
+          />
+        </div>
 
-        <Link to="/notifications">
+        <Link to="/notifications" className="shrink-0">
           <Button variant="ghost" size="icon" className="text-primary hover:bg-primary/10 relative">
             <Bell className="h-5 w-5" />
             <span className="absolute top-2 right-2 h-2 w-2 bg-accent rounded-full animate-pulse shadow-[0_0_8px_hsl(var(--accent))]" />
