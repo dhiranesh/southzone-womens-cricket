@@ -29,12 +29,12 @@ const statusStyles = {
 
 const MatchCard = ({ match }: MatchCardProps) => {
   return (
-    <Card className="p-4 bg-card shadow-sm">
+    <Card className="glass-card p-4 hover:bg-card/70 transition-colors border-border/60">
       <div className="flex items-center justify-between mb-3">
-        <span className="text-xs font-medium text-muted-foreground">
+        <span className="text-xs font-semibold text-secondary/70 tracking-wide uppercase">
           Match #{match.matchNumber}
         </span>
-        <Badge className={statusStyles[match.status]}>
+        <Badge className={`${statusStyles[match.status]} shadow-none border-0 font-bold px-2.5`}>
           {match.status === "live" ? "🔴 LIVE" : match.status.charAt(0).toUpperCase() + match.status.slice(1)}
         </Badge>
       </div>

@@ -80,7 +80,7 @@ const Teams = () => {
             placeholder="Search teams..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10"
+            className="pl-10 h-11 bg-background/50 backdrop-blur-sm border-border/60 focus-visible:ring-primary/50 focus-visible:border-primary transition-all"
           />
         </div>
 

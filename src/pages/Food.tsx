@@ -47,34 +47,34 @@ const Food = () => {
         </h1>
 
         <Tabs defaultValue="official" className="w-full">
-          <TabsList className="w-full grid grid-cols-2 mb-4">
-            <TabsTrigger value="official">Official Meals</TabsTrigger>
-            <TabsTrigger value="nearby">Nearby Places</TabsTrigger>
+          <TabsList className="w-full grid grid-cols-2 mb-6 h-auto p-1 bg-secondary/5 border border-border/40 backdrop-blur-sm rounded-xl">
+            <TabsTrigger value="official" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-2.5 rounded-lg font-semibold transition-all">Official Meals</TabsTrigger>
+            <TabsTrigger value="nearby" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-2.5 rounded-lg font-semibold transition-all">Nearby Places</TabsTrigger>
           </TabsList>
 
           <TabsContent value="official" className="space-y-3">
-            <Card className="p-4 bg-secondary/5 border-secondary/20">
+            <Card className="p-4 bg-secondary/10 border-secondary/20 backdrop-blur-sm">
               <p className="text-sm text-foreground">
-                <span className="font-semibold">Note:</span> All official meals are arranged at the venue. 
+                <span className="font-bold text-secondary">Note:</span> All official meals are arranged at the venue. 
                 Players and officials are requested to follow the meal timings.
               </p>
             </Card>
 
             {mealTimings.map((meal) => (
-              <Card key={meal.meal} className="p-4">
+              <Card key={meal.meal} className="glass-card p-4 hover:border-primary/40 transition-colors">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-semibold text-foreground">{meal.meal}</h3>
-                  <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
+                  <h3 className="font-bold text-foreground font-serif">{meal.meal}</h3>
+                  <span className="text-xs bg-green-500/10 text-green-700 border border-green-500/20 px-2 py-0.5 rounded-full font-medium">
                     Included
                   </span>
                 </div>
                 <div className="space-y-1 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4" />
+                    <Clock className="h-4 w-4 text-primary" />
                     <span>{meal.time}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <MapPin className="h-4 w-4" />
+                    <MapPin className="h-4 w-4 text-primary" />
                     <span>{meal.venue}</span>
                   </div>
                 </div>
@@ -84,29 +84,29 @@ const Food = () => {
 
           <TabsContent value="nearby" className="space-y-3">
             {nearbyRestaurants.map((restaurant) => (
-              <Card key={restaurant.id} className="p-4">
+              <Card key={restaurant.id} className="glass-card p-4 hover:border-secondary/40 transition-colors">
                 <div className="flex items-start justify-between mb-2">
                   <div>
-                    <h3 className="font-semibold text-foreground">{restaurant.name}</h3>
+                    <h3 className="font-bold text-foreground font-serif">{restaurant.name}</h3>
                     <p className="text-sm text-muted-foreground">{restaurant.cuisine}</p>
                   </div>
-                  <span className={`text-xs px-2 py-1 rounded flex items-center gap-1 ${
+                  <span className={`text-xs px-2 py-0.5 rounded-full border font-medium flex items-center gap-1 ${
                     restaurant.type === "Veg" 
-                      ? "bg-secondary/10 text-secondary" 
-                      : "bg-destructive/10 text-destructive"
+                      ? "bg-green-500/10 text-green-700 border-green-500/20" 
+                      : "bg-red-500/10 text-red-700 border-red-500/20"
                   }`}>
                     <Leaf className="h-3 w-3" />
                     {restaurant.type}
                   </span>
                 </div>
-                <div className="flex items-center justify-between text-sm">
+                <div className="flex items-center justify-between text-sm mt-3">
                   <div className="flex items-center gap-1 text-muted-foreground">
-                    <MapPin className="h-4 w-4" />
+                    <MapPin className="h-4 w-4 text-secondary" />
                     <span>{restaurant.distance}</span>
                   </div>
                   <a 
                     href={`tel:${restaurant.phone}`}
-                    className="flex items-center gap-1 text-primary"
+                    className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors font-medium bg-primary/5 px-3 py-1.5 rounded-md"
                   >
                     <Phone className="h-4 w-4" />
                     <span>Call</span>

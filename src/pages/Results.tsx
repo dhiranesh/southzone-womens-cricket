@@ -36,41 +36,41 @@ const Results = () => {
     <AppLayout>
       <div className="p-4 space-y-4">
         <h1 className="text-2xl font-bold text-foreground flex items-center gap-2">
-          <Trophy className="h-6 w-6 text-secondary" />
+          <Trophy className="h-6 w-6 text-primary" />
           Results & Standings
         </h1>
 
         <Tabs defaultValue="points" className="w-full">
-          <TabsList className="w-full grid grid-cols-2 mb-4">
-            <TabsTrigger value="points">Points Table</TabsTrigger>
-            <TabsTrigger value="results">Match Results</TabsTrigger>
+          <TabsList className="w-full grid grid-cols-2 mb-6 h-auto p-1 bg-secondary/5 border border-border/40 backdrop-blur-sm rounded-xl">
+            <TabsTrigger value="points" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-2.5 rounded-lg font-semibold transition-all">Points Table</TabsTrigger>
+            <TabsTrigger value="results" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-2.5 rounded-lg font-semibold transition-all">Match Results</TabsTrigger>
           </TabsList>
 
           <TabsContent value="points">
-            <Card className="overflow-hidden">
+            <Card className="glass-card overflow-hidden">
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
-                    <TableRow className="bg-primary">
-                      <TableHead className="text-primary-foreground">#</TableHead>
-                      <TableHead className="text-primary-foreground">Team</TableHead>
-                      <TableHead className="text-primary-foreground text-center">P</TableHead>
-                      <TableHead className="text-primary-foreground text-center">W</TableHead>
-                      <TableHead className="text-primary-foreground text-center">L</TableHead>
-                      <TableHead className="text-primary-foreground text-center">Pts</TableHead>
-                      <TableHead className="text-primary-foreground text-right">NRR</TableHead>
+                    <TableRow className="bg-secondary hover:bg-secondary border-none">
+                      <TableHead className="text-white font-bold">#</TableHead>
+                      <TableHead className="text-white font-bold">Team</TableHead>
+                      <TableHead className="text-white font-bold text-center">P</TableHead>
+                      <TableHead className="text-white font-bold text-center">W</TableHead>
+                      <TableHead className="text-white font-bold text-center">L</TableHead>
+                      <TableHead className="text-white font-bold text-center">Pts</TableHead>
+                      <TableHead className="text-white font-bold text-right">NRR</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {pointsTable.map((row) => (
-                      <TableRow key={row.position}>
+                    {pointsTable.map((row, index) => (
+                      <TableRow key={row.position} className={`${index % 2 === 0 ? 'bg-background/30' : 'bg-transparent'} hover:bg-primary/5 transition-colors border-border/50`}>
                         <TableCell className="font-medium">{row.position}</TableCell>
-                        <TableCell className="font-medium text-foreground">{row.team}</TableCell>
+                        <TableCell className="font-bold text-foreground">{row.team}</TableCell>
                         <TableCell className="text-center">{row.played}</TableCell>
-                        <TableCell className="text-center text-secondary font-medium">{row.won}</TableCell>
+                        <TableCell className="text-center text-green-600 font-bold">{row.won}</TableCell>
                         <TableCell className="text-center text-destructive">{row.lost}</TableCell>
-                        <TableCell className="text-center font-bold text-primary">{row.points}</TableCell>
-                        <TableCell className="text-right">{row.nrr}</TableCell>
+                        <TableCell className="text-center font-black text-secondary">{row.points}</TableCell>
+                        <TableCell className="text-right font-mono">{row.nrr}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -95,5 +95,6 @@ const Results = () => {
     </AppLayout>
   );
 };
+
 
 export default Results;

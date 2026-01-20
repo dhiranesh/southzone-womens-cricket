@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 interface TimeLeft {
   days: number;
@@ -43,19 +44,31 @@ const CountdownTimer = () => {
   ];
 
   return (
-    <Card className="bg-primary text-primary-foreground p-4 mx-4 -mt-8 relative z-10 shadow-lg">
-      <p className="text-center text-sm mb-3 text-primary-foreground/80">Tournament Starts In</p>
-      <div className="grid grid-cols-4 gap-2">
-        {timeUnits.map((unit) => (
-          <div key={unit.label} className="text-center">
-            <div className="bg-primary-foreground/10 rounded-lg py-2 px-1">
-              <span className="text-2xl font-bold">{String(unit.value).padStart(2, "0")}</span>
+    <motion.div
+      initial={{ y: 20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: 0.5, duration: 0.5 }}
+      className="px-4 -mt-10 relative z-20"
+    >
+      <Card className="glass-card p-6 border-white/20">
+        <div className="flex items-center justify-between mb-4">
+          <p className="font-semibold text-primary">Tournament Begins In</p>
+          <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+        </div>
+        <div className="grid grid-cols-4 gap-4">
+          {timeUnits.map((unit) => (
+            <div key={unit.label} className="text-center group">
+              <div className="bg-primary/5 rounded-xl py-3 px-1 group-hover:bg-primary/10 transition-colors border border-primary/10">
+                <span className="text-2xl sm:text-3xl font-bold font-mono text-primary tabular-nums tracking-tighter">
+                  {String(unit.value).padStart(2, "0")}
+                </span>
+              </div>
+              <span className="text-[10px] uppercase font-bold tracking-wider mt-2 block text-muted-foreground">{unit.label}</span>
             </div>
-            <span className="text-xs mt-1 block text-primary-foreground/80">{unit.label}</span>
-          </div>
-        ))}
-      </div>
-    </Card>
+          ))}
+        </div>
+      </Card>
+    </motion.div>
   );
 };
 

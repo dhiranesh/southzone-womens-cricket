@@ -5,134 +5,102 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
+    /* Premium CSK Theme - Light Mode */
+    /* Background: Very subtle warm off-white, clean and premium */
     --background: 210 20% 98%;
-    --foreground: 220 60% 15%;
+    /* Foreground: Deep Blue (almost black) for sharp contrast */
+    --foreground: 222 47% 11%;
 
+    /* Card: White with slight transparency for glass effect */
     --card: 0 0% 100%;
-    --card-foreground: 220 60% 15%;
+    --card-foreground: 222 47% 11%;
 
+    /* Popover: Pure white */
     --popover: 0 0% 100%;
-    --popover-foreground: 220 60% 15%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 220 70% 25%;
-    --primary-foreground: 0 0% 100%;
+    /* PRIMARY: CSK Yellow (The main brand color) #F9CD05 -> HSL 49 97% 50% */
+    --primary: 49 97% 50%;
+    /* Primary Text: Deep Blue for readability on yellow */
+    --primary-foreground: 212 100% 31%;
 
-    --secondary: 142 70% 35%;
+    /* SECONDARY: CSK Blue (The dominant accent) #004BA0 -> HSL 212 100% 31% */
+    --secondary: 212 100% 31%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 20% 92%;
-    --muted-foreground: 220 20% 45%;
-
-    --accent: 142 70% 35%;
+    /* ACCENT: Roaring Orange (For highlights) #EA3C12 -> HSL 12 86% 49% */
+    --accent: 12 86% 49%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 72% 50%;
-    --destructive-foreground: 0 0% 100%;
+    /* Muted: Soft grey-blue for secondary text/backgrounds */
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --border: 210 20% 88%;
-    --input: 210 20% 88%;
-    --ring: 220 70% 25%;
+    /* Destructive: Error Red */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Borders: Soft grey */
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 49 97% 50%; /* Ring focus color is now CSK Yellow */
 
     --radius: 0.75rem;
 
-    --sidebar-background: 220 60% 20%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 142 70% 45%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 50% 30%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 220 50% 25%;
-    --sidebar-ring: 142 70% 45%;
-
-    --chart-1: 220 70% 25%;
-    --chart-2: 142 70% 35%;
-    --chart-3: 200 80% 50%;
-    --chart-4: 45 100% 50%;
-    --chart-5: 280 60% 50%;
-
-    --sidebar: 220 60% 20%;
-
-    --success: 142 70% 35%;
-    --success-foreground: 0 0% 100%;
-    --warning: 45 100% 50%;
-    --warning-foreground: 220 60% 15%;
-    --info: 200 80% 50%;
-    --info-foreground: 0 0% 100%;
-
-    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-    --font-serif: 'Lora', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-    --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-
-    --shadow-2xs: 0 1px 3px 0px hsl(220 60% 15% / 0.05);
-    --shadow-xs: 0 1px 3px 0px hsl(220 60% 15% / 0.08);
-    --shadow-sm: 0 2px 4px 0px hsl(220 60% 15% / 0.08), 0 1px 2px -1px hsl(220 60% 15% / 0.08);
-    --shadow: 0 4px 6px -1px hsl(220 60% 15% / 0.1), 0 2px 4px -2px hsl(220 60% 15% / 0.1);
-    --shadow-md: 0 6px 10px -2px hsl(220 60% 15% / 0.1), 0 4px 6px -2px hsl(220 60% 15% / 0.08);
-    --shadow-lg: 0 10px 15px -3px hsl(220 60% 15% / 0.1), 0 4px 6px -4px hsl(220 60% 15% / 0.1);
-    --shadow-xl: 0 20px 25px -5px hsl(220 60% 15% / 0.1), 0 8px 10px -6px hsl(220 60% 15% / 0.1);
-    --shadow-2xl: 0 25px 50px -12px hsl(220 60% 15% / 0.25);
-
-    --tracking-normal: 0em;
-    --spacing: 0.25rem;
+    /* Sidebar - keeping consistent with primary theme */
+    --sidebar-background: 212 100% 31%; /* Deep Blue sidebar */
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 49 97% 50%; /* Yellow active states */
+    --sidebar-primary-foreground: 212 100% 31%;
+    --sidebar-accent: 212 80% 25%; /* Slightly darker blue hover */
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 212 80% 25%;
+    --sidebar-ring: 49 97% 50%;
   }
 
   .dark {
-    --background: 220 60% 8%;
-    --foreground: 210 20% 95%;
+    /* Premium Dark Mode - Deep Blue Background */
+    --background: 222 47% 6%; /* Very deep blue, almost black */
+    --foreground: 210 40% 98%;
 
-    --card: 220 50% 12%;
-    --card-foreground: 210 20% 95%;
+    --card: 222 47% 10%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 220 50% 12%;
-    --popover-foreground: 210 20% 95%;
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 200 80% 50%;
-    --primary-foreground: 0 0% 100%;
+    /* PRIMARY: CSK Yellow shines even more in dark mode */
+    --primary: 49 97% 50%;
+    --primary-foreground: 212 100% 31%;
 
-    --secondary: 142 60% 45%;
+    /* SECONDARY: Lighter Blue for visibility */
+    --secondary: 212 80% 40%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 30% 20%;
-    --muted-foreground: 210 15% 65%;
-
-    --accent: 142 60% 45%;
+    /* ACCENT: Vibrant Orange */
+    --accent: 12 86% 55%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 72% 55%;
-    --destructive-foreground: 0 0% 100%;
+    --muted: 217 33% 15%;
+    --muted-foreground: 215 20% 65%;
 
-    --border: 220 30% 22%;
-    --input: 220 30% 22%;
-    --ring: 200 80% 50%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
 
-    --sidebar-background: 220 60% 10%;
-    --sidebar-foreground: 210 20% 95%;
-    --sidebar-primary: 142 60% 45%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 40% 18%;
-    --sidebar-accent-foreground: 210 20% 95%;
-    --sidebar-border: 220 30% 22%;
-    --sidebar-ring: 142 60% 45%;
+    --border: 217 33% 15%;
+    --input: 217 33% 15%;
+    --ring: 49 97% 50%;
 
-    --chart-1: 200 80% 50%;
-    --chart-2: 142 60% 45%;
-    --chart-3: 200 60% 60%;
-    --chart-4: 45 90% 55%;
-    --chart-5: 280 50% 55%;
-
-    --sidebar: 220 50% 12%;
-    --success: 142 60% 45%;
-    --success-foreground: 0 0% 100%;
-    --warning: 45 90% 55%;
-    --warning-foreground: 220 60% 8%;
-    --info: 200 80% 50%;
-    --info-foreground: 0 0% 100%;
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 49 97% 50%;
+    --sidebar-primary-foreground: 212 100% 31%;
+    --sidebar-accent: 217 33% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 15%;
+    --sidebar-ring: 49 97% 50%;
   }
 }
 
@@ -142,11 +110,22 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  html {
-    -webkit-tap-highlight-color: transparent;
+  /* Glassmorphism Utilities - Enhanced */
+  .glass {
+    @apply bg-background/70 backdrop-blur-xl border-b border-white/20 shadow-sm supports-[backdrop-filter]:bg-background/60;
+  }
+  
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-lg border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01] hover:bg-card/80;
+  }
+
+  /* Premium Gradients */
+  .bg-gradient-csk {
+    @apply bg-gradient-to-r from-[hsl(49,97%,50%)] via-[hsl(12,86%,49%)] to-[hsl(212,100%,31%)];
   }
 }
 
@@ -157,5 +136,9 @@ All colors MUST be HSL.
   
   .safe-area-top {
     padding-top: env(safe-area-inset-top, 0);
+  }
+
+  .text-balance {
+    text-wrap: balance;
   }
 }

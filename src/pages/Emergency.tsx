@@ -57,11 +57,11 @@ const Emergency = () => {
           <h1 className="text-2xl font-bold text-foreground">Emergency Help</h1>
         </div>
 
-        <Card className="p-4 bg-destructive text-destructive-foreground">
-          <p className="text-center mb-4 font-medium">One-Tap Emergency Call</p>
+        <Card className="p-5 bg-destructive text-destructive-foreground shadow-lg shadow-destructive/20 border-none rounded-xl">
+          <p className="text-center mb-4 font-bold text-lg">One-Tap Emergency Call</p>
           <Button 
             size="lg"
-            className="w-full bg-card text-destructive hover:bg-card/90 text-lg font-bold"
+            className="w-full bg-white text-destructive hover:bg-white/90 text-lg font-black shadow-md"
             asChild
           >
             <a href="tel:+919876500010">
@@ -73,19 +73,19 @@ const Emergency = () => {
 
         <div className="space-y-3">
           {emergencyContacts.map((contact) => (
-            <Card key={contact.phone} className="p-4">
+            <Card key={contact.phone} className="glass-card p-4 hover:border-destructive/30 transition-all">
               <div className="flex items-center gap-4">
-                <div className={`w-12 h-12 ${contact.color} rounded-full flex items-center justify-center`}>
-                  <contact.icon className="h-6 w-6 text-primary-foreground" />
+                <div className={`w-12 h-12 ${contact.color} rounded-full flex items-center justify-center shadow-sm text-white`}>
+                  <contact.icon className="h-6 w-6" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-foreground">{contact.title}</h3>
+                  <h3 className="font-bold text-foreground font-serif">{contact.title}</h3>
                   <p className="text-sm text-muted-foreground">{contact.subtitle}</p>
                 </div>
                 <Button 
                   size="icon"
                   variant="outline"
-                  className="h-12 w-12"
+                  className="h-12 w-12 rounded-full border-primary/20 hover:bg-primary/10 hover:text-primary transition-colors"
                   asChild
                 >
                   <a href={`tel:${contact.phone}`}>
@@ -97,13 +97,13 @@ const Emergency = () => {
           ))}
         </div>
 
-        <Card className="p-4 bg-muted">
-          <h3 className="font-semibold text-foreground mb-2">Important Instructions</h3>
-          <ul className="space-y-2 text-sm text-muted-foreground">
-            <li>• Stay calm and provide clear information</li>
-            <li>• Share your exact location when calling</li>
-            <li>• Follow instructions from emergency responders</li>
-            <li>• Keep this number saved: +91 98765 00010</li>
+        <Card className="glass-card p-5 bg-secondary/5">
+          <h3 className="font-bold text-foreground mb-3 font-serif">Important Instructions</h3>
+          <ul className="space-y-3 text-sm text-muted-foreground">
+            <li className="flex items-start gap-2"><span className="text-primary font-bold">•</span> Stay calm and provide clear information</li>
+            <li className="flex items-start gap-2"><span className="text-primary font-bold">•</span> Share your exact location when calling</li>
+            <li className="flex items-start gap-2"><span className="text-primary font-bold">•</span> Follow instructions from emergency responders</li>
+            <li className="flex items-start gap-2"><span className="text-primary font-bold">•</span> Keep this number saved: <span className="font-mono text-foreground font-semibold">+91 98765 00010</span></li>
           </ul>
         </Card>
       </div>

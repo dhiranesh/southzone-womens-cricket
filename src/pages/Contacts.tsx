@@ -66,19 +66,23 @@ const Contacts = () => {
         </h1>
 
         <div>
-          <h2 className="text-lg font-semibold text-foreground mb-3">Organizing Committee</h2>
+          <h2 className="text-lg font-bold text-foreground mb-4 font-serif">Organizing Committee</h2>
           <div className="space-y-3">
             {organizingCommittee.map((contact) => (
-              <ContactCard key={contact.phone} contact={contact} />
+              <div key={contact.phone} className="glass-card p-4 hover:border-primary/40 transition-colors">
+                <ContactCard contact={contact} />
+              </div>
             ))}
           </div>
         </div>
 
         <div>
-          <h2 className="text-lg font-semibold text-foreground mb-3">Support Services</h2>
+          <h2 className="text-lg font-bold text-foreground mb-4 font-serif">Support Services</h2>
           <div className="space-y-3">
             {supportServices.map((contact) => (
-              <ContactCard key={contact.phone} contact={contact} />
+              <div key={contact.phone} className="glass-card p-4 hover:border-secondary/40 transition-colors">
+                <ContactCard contact={contact} />
+              </div>
             ))}
           </div>
         </div>

@@ -31,9 +31,13 @@ const Gallery = () => {
         </h1>
 
         <Tabs defaultValue="opening" className="w-full">
-          <TabsList className="w-full grid grid-cols-3 mb-4">
+          <TabsList className="w-full grid grid-cols-3 mb-6 h-auto p-1 bg-secondary/5 border border-border/40 backdrop-blur-sm rounded-xl">
             {galleryCategories.map((cat) => (
-              <TabsTrigger key={cat.id} value={cat.id}>
+              <TabsTrigger 
+                key={cat.id} 
+                value={cat.id}
+                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-2.5 rounded-lg font-semibold transition-all"
+              >
                 {cat.label}
               </TabsTrigger>
             ))}
@@ -45,22 +49,22 @@ const Gallery = () => {
                 {placeholderImages
                   .filter((img) => img.category === cat.id)
                   .map((img) => (
-                    <Card key={img.id} className="overflow-hidden">
-                      <div className="aspect-square bg-muted flex items-center justify-center">
+                    <Card key={img.id} className="glass-card overflow-hidden group border-border/60">
+                      <div className="aspect-square bg-muted/30 flex items-center justify-center group-hover:bg-primary/5 transition-colors">
                         <div className="text-center p-4">
-                          <Image className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
-                          <p className="text-xs text-muted-foreground">Photo coming soon</p>
+                          <Image className="h-8 w-8 text-muted-foreground/60 mx-auto mb-2 group-hover:text-primary transition-colors" />
+                          <p className="text-xs text-muted-foreground/80">Photo coming soon</p>
                         </div>
                       </div>
-                      <div className="p-2">
-                        <p className="text-xs font-medium text-foreground truncate">{img.caption}</p>
+                      <div className="p-3 bg-white/40 backdrop-blur-sm">
+                        <p className="text-xs font-bold text-foreground truncate">{img.caption}</p>
                       </div>
                     </Card>
                   ))}
               </div>
               {placeholderImages.filter((img) => img.category === cat.id).length === 0 && (
                 <div className="text-center py-12">
-                  <Image className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                  <Image className="h-12 w-12 text-muted-foreground/30 mx-auto mb-4" />
                   <p className="text-muted-foreground">No photos available yet</p>
                 </div>
               )}

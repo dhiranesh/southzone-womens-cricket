@@ -66,34 +66,36 @@ const Rules = () => {
           Rules & Guidelines
         </h1>
 
-        <Card className="p-4 bg-primary/5 border-primary/20">
-          <p className="text-sm text-foreground">
+        <Card className="p-5 bg-primary/10 border-primary/20 backdrop-blur-sm border-l-4 border-l-primary shadow-sm">
+          <p className="text-sm text-foreground font-medium leading-relaxed">
             All participants are expected to read and follow these guidelines. 
             Violation of rules may result in penalties or disqualification.
           </p>
         </Card>
 
-        <Accordion type="single" collapsible className="w-full space-y-2">
+        <Accordion type="single" collapsible className="w-full space-y-3">
           {rules.map((section) => (
             <AccordionItem 
               key={section.id} 
               value={section.id}
-              className="bg-card border rounded-lg overflow-hidden"
+              className="glass-card border border-border/50 rounded-xl overflow-hidden shadow-sm"
             >
-              <AccordionTrigger className="px-4 hover:no-underline">
+              <AccordionTrigger className="px-5 py-4 hover:no-underline hover:bg-primary/5 transition-colors">
                 <div className="flex items-center gap-3">
-                  <section.icon className="h-5 w-5 text-primary" />
-                  <span className="font-semibold text-foreground">{section.title}</span>
+                  <div className="p-2 bg-secondary/10 rounded-lg">
+                    <section.icon className="h-5 w-5 text-secondary" />
+                  </div>
+                  <span className="font-bold text-foreground text-base tracking-tight">{section.title}</span>
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="px-4 pb-4">
-                <ul className="space-y-2">
+              <AccordionContent className="px-5 pb-5">
+                <ul className="space-y-3 pt-2">
                   {section.items.map((item, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm">
-                      <span className="h-5 w-5 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xs font-medium flex-shrink-0">
+                    <li key={index} className="flex items-start gap-3 text-sm">
+                      <span className="h-5 w-5 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">
                         {index + 1}
                       </span>
-                      <span className="text-muted-foreground">{item}</span>
+                      <span className="text-muted-foreground leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>

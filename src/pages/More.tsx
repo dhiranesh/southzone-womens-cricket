@@ -53,33 +53,33 @@ const More = () => {
         <div className="space-y-3">
           {menuItems.map((item) => (
             <Link key={item.path} to={item.path}>
-              <Card className="p-4 hover:shadow-md transition-shadow">
+              <Card className="glass-card p-4 hover:shadow-lg hover:shadow-primary/5 transition-all group border-border/60">
                 <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 ${item.color} rounded-full flex items-center justify-center`}>
-                    <item.icon className="h-6 w-6 text-primary-foreground" />
+                  <div className={`w-12 h-12 ${item.color} rounded-2xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform`}>
+                    <item.icon className="h-6 w-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-foreground">{item.label}</h3>
+                    <h3 className="font-bold text-foreground group-hover:text-primary transition-colors">{item.label}</h3>
                     <p className="text-sm text-muted-foreground">{item.description}</p>
                   </div>
-                  <ChevronRight className="h-5 w-5 text-muted-foreground" />
+                  <ChevronRight className="h-5 w-5 text-muted-foreground/50 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                 </div>
               </Card>
             </Link>
           ))}
         </div>
 
-        <Card className="p-4 bg-muted/50 mt-6">
-          <div className="text-center">
-            <p className="text-sm text-muted-foreground mb-1">
+        <Card className="glass-card p-6 bg-secondary/5 mt-8 border-none">
+          <div className="text-center space-y-2">
+            <p className="text-sm font-semibold text-secondary">
               South Zone Women's Cricket Tournament
             </p>
             <p className="text-xs text-muted-foreground">
               © 2026 K.S. Rangasamy College of Technology
             </p>
-            <p className="text-xs text-muted-foreground mt-2">
+            <div className="inline-block px-3 py-1 rounded-full bg-background/50 border border-border/50 text-[10px] text-muted-foreground mt-2">
               Version 1.0.0
-            </p>
+            </div>
           </div>
         </Card>
       </div>
